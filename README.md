@@ -1,10 +1,12 @@
-# 🌳 Go Bonzai™ Composite Command Tree
+# 🌳 Note - Zettelkasten Quick App
 
-*Create a new GitHub project using this template and change this
-README.md to match your project. Make all your template changes before
-making your first commit.*
+> Inspired in [rwxrob's zet repo](https://github.com/rwxrob/zet), his
+> zet bash commands and new [bonzai](https://github.com/rwxrob/bonzai)
+> project.
 
-[![GoDoc](https://godoc.org/github.com/rwxrob/foo?status.svg)](https://godoc.org/github.com/rwxrob/foo)
+Note is a simple and quick tool to create and manage notes.
+
+[![GoDoc](https://godoc.org/github.com/espinosajuanma/note?status.svg)](https://godoc.org/github.com/espinosajuanma/note)
 [![License](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](LICENSE)
 
 ## Install
@@ -15,7 +17,7 @@ Bonzai command tree.
 Standalone
 
 ```
-go install github.com/rwxrob/foo/foo@latest
+go install github.com/espinosajuanma/note/note@latest
 ```
 
 Composed
@@ -25,12 +27,12 @@ package z
 
 import (
 	Z "github.com/rwxrob/bonzai/z"
-	"github.com/rwxrob/foo"
+	"github.com/espinosajuanma/note"
 )
 
 var Cmd = &Z.Cmd{
 	Name:     `z`,
-	Commands: []*Z.Cmd{help.Cmd, foo.Cmd},
+	Commands: []*Z.Cmd{help.Cmd, note.Cmd},
 }
 ```
 
@@ -41,7 +43,7 @@ To activate bash completion just use the `complete -C` option from your
 completion is done by the program itself.
 
 ```
-complete -C foo foo
+complete -C note note
 ```
 
 If you don't have bash or tab completion check use the shortcut
@@ -53,14 +55,10 @@ All documentation (like manual pages) has been embedded into the source
 code of the application. See the source or run the program with help to
 access it.
 
-## Reminders
+## To do
 
-* Change `foo` every place to your project name (`git grep foo`)
-* Remove anything you don't need
-* Change `.github/FUNDING.yaml` to your own information
-* Update `.gitignore` to your liking
-* Will need to `go get -u` to update dependencies
-
-## Other Examples
-
-* <https://github.com/rwxrob/z> - the one that started it all
+- [ ] Config `zettelkasten` path
+- [ ] Allow multicall
+- [ ] Add `search`/`query` command
+- [ ] Document everything
+- [ ] Add tests
