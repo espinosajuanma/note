@@ -39,6 +39,9 @@ func (n *Note) Init() error {
 	}
 	defer f.Close()
 	_, err = f.WriteString("# " + n.Title + "\n")
+	if err != nil {
+		return err
+	}
 	return nil
 }
 
