@@ -1,11 +1,13 @@
 package note
 
 import (
+	"fmt"
+	"os"
 	"strings"
 
 	note "github.com/espinosajuanma/note/pkg"
 	Z "github.com/rwxrob/bonzai/z"
-	"github.com/rwxrob/config"
+	"github.com/rwxrob/conf"
 	"github.com/rwxrob/help"
 	"github.com/rwxrob/term"
 )
@@ -14,7 +16,7 @@ var Cmd = &Z.Cmd{
 	Name:     `note`,
 	Summary:  `taking quick notes`,
 	Version:  `v0.0.1`,
-	Commands: []*Z.Cmd{help.Cmd, config.Cmd, List, New, Edit, Remove, Latest, Push},
+	Commands: []*Z.Cmd{help.Cmd, conf.Cmd, List, New, Edit, Remove, Latest, Push},
 }
 
 var New = &Z.Cmd{
