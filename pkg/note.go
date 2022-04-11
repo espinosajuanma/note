@@ -56,7 +56,7 @@ func List() ([]*Note, error) {
 	notes := []*Note{}
 	for _, v := range list {
 		if IsValid(v) && fs.IsDir(v) && fs.Exists(v+"/"+FILE) {
-			t, _ := GetTitle(v)
+			t, _ := ReadTitle(v)
 			notes = append(notes, &Note{Id: v, Title: t, Path: v + "/" + FILE})
 		}
 	}
@@ -70,7 +70,7 @@ func IsValid(id string) bool {
 	return regexp.MustCompile(`\d{14}`).MatchString(id)
 }
 
-func GetTitle(id string) (string, error) {
+func ReadTitle(id string) (string, error) {
 	f, err := os.Open(id + "/" + FILE)
 	if err != nil {
 		return "", err
@@ -91,7 +91,7 @@ func Latest() (*Note, error) {
 
 func GetById(id string) (*Note, error) {
 	if IsValid(id) && fs.IsDir(id) && fs.Exists(id+"/"+FILE) {
-		t, _ := GetTitle(id)
+		t, _ := ReadTitle(id)
 		return &Note{Id: id, Title: t, Path: id + "/" + FILE}, nil
 	}
 	return new(Note), fmt.Errorf("[%s] is not a valid note", id)
