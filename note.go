@@ -13,7 +13,7 @@ import (
 var Cmd = &Z.Cmd{
 	Name:     `note`,
 	Summary:  `taking quick notes`,
-	Version:  `v0.0.1`,
+	Version:  `v0.0.2`,
 	Commands: []*Z.Cmd{help.Cmd, conf.Cmd, List, New, Edit, Remove, Latest, Push},
 }
 
