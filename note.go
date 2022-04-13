@@ -34,6 +34,12 @@ var New = &Z.Cmd{
 		}
 		n.Init()
 		n.Edit()
+		if yesOrNo("Commit?") {
+			n, err = note.GetById(n.Id)
+			Z.Exec("git", "add", n.Id)
+			Z.Exec("git", "commit", "-m", n.Title)
+			Z.Exec("git", "push")
+		}
 		return nil
 	},
 }
@@ -43,7 +49,7 @@ var List = &Z.Cmd{
 	Aliases:  []string{"ls"},
 	Summary:  `list all valid notes in the current directory`,
 	Commands: []*Z.Cmd{help.Cmd},
-	Call: func(_ *Z.Cmd, args ...string) error {
+	Call: func(_ *Z.Cmd, _ ...string) error {
 		list, err := note.List()
 		if err != nil {
 			return err
@@ -70,6 +76,12 @@ var Edit = &Z.Cmd{
 			return err
 		}
 		n.Edit()
+		if yesOrNo("Commit?") {
+			n, err = note.GetById(n.Id)
+			Z.Exec("git", "add", n.Id)
+			Z.Exec("git", "commit", "-m", n.Title)
+			Z.Exec("git", "push")
+		}
 		return nil
 	},
 }
@@ -89,7 +101,7 @@ var Push = &Z.Cmd{
 			return err
 		}
 		Z.Exec("git", "add", n.Path)
-		Z.Exec("git", "commit", "-m", "'"+n.Title+"'")
+		Z.Exec("git", "commit", "-m", n.Title)
 		Z.Exec("git", "push")
 		return nil
 	},
@@ -115,6 +127,9 @@ var Remove = &Z.Cmd{
 			if err != nil {
 				return err
 			}
+			Z.Exec("git", "add", n.Id)
+			Z.Exec("git", "commit", "-m", "`Removed` "+n.Title)
+			Z.Exec("git", "push")
 		}
 		return nil
 	},
