@@ -1,8 +1,6 @@
 package note
 
 import (
-	"fmt"
-	"os"
 	"strings"
 
 	note "github.com/espinosajuanma/note/pkg"
