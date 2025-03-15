@@ -1,13 +1,11 @@
-# 🌳 Note - Zettelkasten Quick App
+# Note - Zettelkasten Quick App
 
-> Inspired in [rwxrob's zet repo](https://github.com/rwxrob/zet), his
-> zet bash commands and new [bonzai](https://github.com/rwxrob/bonzai)
-> project.
+> [!IMPORTANT]
+> I am re-writing this app [notes](https://github.com/espinosajuanma/notes).
+> Soon it will be archived or removed.
 
 Note is a simple and quick tool to create and manage notes.
 
-[![GoDoc](https://godoc.org/github.com/espinosajuanma/note?status.svg)](https://godoc.org/github.com/espinosajuanma/note)
-[![License](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](LICENSE)
 
 ## Install
 
